@@ -1,4 +1,5 @@
-const express = require('express');
+const express = require('express'); // Install as dependency
+var history = require('connect-history-api-fallback'); // Install as dependency
 const path = require('path');
 const serveStatic = require('serve-static');
 const app = express();
