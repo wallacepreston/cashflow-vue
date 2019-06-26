@@ -1,6 +1,6 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title>RE Cashflow Calculator</v-toolbar-title>
+    <v-btn :to="{ name: 'home' }" active-class flat large><v-toolbar-title>RE Cashflow Calculator</v-toolbar-title></v-btn>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn
@@ -34,8 +34,8 @@ export default {
   data: () => ({
     menu: [
       {
-        link: { name: 'hello-world' },
-        title: 'Hello World'
+        link: { name: 'home' },
+        title: 'Home'
       },
       {
         link: { name: 'calculate' },

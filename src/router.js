@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from './views/HelloWorld.vue'
+import Home from './views/Home.vue'
 import Calculate from './views/Calculate.vue'
 
 
@@ -11,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'hello-world',
-      component: HelloWorld
+      name: 'home',
+      component: Home
     },
     {
       path: '/calculate',
