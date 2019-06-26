@@ -1,14 +1,49 @@
 <template>
-  <div id="nav" class="nav">
-    <nav>
-      <router-link :to="{ name: 'hello-world' }">Hello World</router-link>|
-      <router-link :to="{ name: 'calculate' }">Calculate</router-link>|
-    </nav>
-  </div>
+  <v-toolbar>
+    <v-toolbar-title>RE Cashflow Calculator</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn
+          v-for="item in menu"
+          :key="item.link.name"
+          :to="item.link"
+          exact
+          flat
+        >{{ item.title }}</v-btn>
+      
+    </v-toolbar-items>
+    <v-menu class="hidden-md-and-up">
+      <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+        <v-list>
+          <v-list-tile v-for="item in menu" :key="item.link.name">
+            <v-btn
+              :to="item.link"
+              exact
+              flat
+            >{{ item.title }}</v-btn>
+          </v-list-tile>   
+        </v-list>
+    </v-menu>
+  </v-toolbar>
 </template>
 
+
+
 <script>
-export default {};
+export default {
+  data: () => ({
+    menu: [
+      {
+        link: { name: 'hello-world' },
+        title: 'Hello World'
+      },
+      {
+        link: { name: 'calculate' },
+        title: 'Calculate'
+      },
+    ]
+  })
+};
 </script>
 
 <style scoped>
