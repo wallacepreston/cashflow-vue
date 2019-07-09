@@ -2,22 +2,24 @@
 import { calculateCashflow } from "@/util";
 export default {
   data: () => ({
-    startingSavings: "",
-    savingPerYear: "",
-    cashflowPerHouse: "",
-    houseCount: "",
-    numYears: "",
-    cashDownPerHouse: "",
+    startingSavings: "0",
+    savingPerYear: "0",
+    cashflowPerHouse: "3000",
+    houseCount: "2",
+    numYears: "20",
+    cashDownPerHouse: "20000",
     yearsArr: [],
     yearsHeaders: [
       {
-        text: "Annual Real Estate Cashflow",
-        value: "annualRealEstateCashFlow",
+        text: "Annual RE Cashflow",
+        value: "annualRECashFlow",
         sortable: false
       },
       { text: "Cash", value: "currCash", sortable: false },
       { text: "Year", value: "currYear", sortable: false },
       { text: "House Count", value: "houseCount", sortable: false },
+      { text: "Total Assets", value: "totalAssets", sortable: false },
+      { text: "Total Debt", value: "totalDebt", sortable: false },
       { text: "Portfolio Value", value: "portfolioValue", sortable: false }
     ],
     rowsPerPageItems: [10, 20, 30, 40],
@@ -36,6 +38,7 @@ export default {
         this.cashDownPerHouse
       );
       this.yearsArr = newYearsArr;
+      // eslint-disable-next-line no-console
       console.log(this.yearsArr);
     }
   }
@@ -52,11 +55,13 @@ export default {
           :rows-per-page-items="rowsPerPageItems"
         >
           <template slot="items" slot-scope="props">
-            <td>${{props.item.annualRealEstateCashFlow}}</td>
+            <td>${{props.item.annualRECashflow}}</td>
             <td>${{props.item.currCash}}</td>
             <td>{{props.item.currYear}}</td>
             <td>{{props.item.houseCount}}</td>
-            <td>${{props.item.portfolioValue}}</td>
+            <td>${{props.item.totalAssets}}</td>
+            <td>${{props.item.totalDebt}}</td>
+            <td>really big text file that would never fit in one tiny little column, Does it wrap?</td>
           </template>
         </v-data-table>
       </v-card>
